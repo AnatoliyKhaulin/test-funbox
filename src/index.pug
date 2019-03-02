@@ -1,0 +1,27 @@
+extends pug/base
+
+prepend vars
+	- title = 'Test funbox - Анатолий Хаулин'
+	- description = 'test funbox'
+append vars
+	- meta.keywords = ['test funbox']
+	- link.appleTouchIcon = "./icons/apple-icon.png"
+	- link.appleTouchIcon57x57 = "./icons/apple-icon-57x57.png"
+	- link.appleTouchIcon60x60 = "./icons/apple-icon-60x60.png"
+	- link.appleTouchIcon72x72 = "./icons/apple-icon-72x72.png"
+	- link.appleTouchIcon76x76 = "./icons/apple-icon-76x76.png"
+	- link.appleTouchIcon114x114 = "./icons/apple-icon-114x114.png"
+	- link.appleTouchIcon120x120 = "./icons/apple-icon-120x120.png"
+	- link.appleTouchIcon144x144 = "./icons/apple-icon-144x144.png"
+	- link.appleTouchIcon152x152 = "./icons/apple-icon-152x152.png"
+	- link.appleTouchIcon180x180 = "./icons/apple-icon-180x180.png"
+	- link.appleTouchIconPrecomposed = "./icons/apple-icon-precomposed.png"
+	- link.icon = "./icons/favicon.ico"
+	- link.icon16x16 = "./icons/favicon-16x16.png"
+	- link.icon32x32 = "./icons/favicon-32x32.png"
+	- link.icon96x96 = "./icons/favicon-96x96.png"
+	- link.manifest = "./icons/manifest.json"
+
+block content
+	main.wrapper
+		include pug/blocks/catalog

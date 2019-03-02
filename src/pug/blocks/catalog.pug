@@ -1,0 +1,44 @@
+article.catalog
+	.catalog__wrap
+		h1.catalog__title(aria-label='Ты сегодня покормил кота?' title='Ты сегодня покормил кота?')
+			| Ты сегодня покормил кота?
+		.catalog__list
+			+catalog-card({'items':[
+				{
+					cardDescription: 'Сказочное заморское яство',
+					cardTitle: 'Нямушка',
+					cardCategory: 'с фуа-гра',
+					cardParamsServingCount: '10',
+					cardParamsServing: 'порций',
+					cardParamsGiftCount: '',
+					cardParamsGift: 'мышь в подарок',
+					cardWeight: '0,5',
+					class: 'default',
+					attrs: {'data-default': '', 'data-selected': 'Печень утки разварная с артишоками.', 'data-disabled': 'Печалька, с фуа-гра закончился.', 'data-selected-hover': 'Котэ не одобряет?', 'data-selected-hovered': ''},
+				},
+				{
+					cardDescription: 'Сказочное заморское яство',
+					cardTitle: 'Нямушка',
+					cardCategory: 'с рыбой',
+					cardParamsServingCount: '40',
+					cardParamsServing: 'порций',
+					cardParamsGiftCount: '2',
+					cardParamsGift: 'мыши в подарок',
+					cardWeight: '2',
+					class: 'default',
+					attrs: {'data-default': '', 'data-selected': 'Головы щучьи с чесноком да свежайшая сёмгушка.', 'data-disabled': 'Печалька, с рыбой закончился.', 'data-selected-hover': 'Котэ не одобряет?', 'data-selected-hovered': ''},
+				},
+				{
+					cardDescription: 'Сказочное заморское яство',
+					cardTitle: 'Нямушка',
+					cardCategory: 'с курой',
+					cardParamsServingCount: '100',
+					cardParamsServing: 'порций',
+					cardParamsGiftCount: '5',
+					cardParamsGift: 'мышей в подарок',
+					cardParamsStatus: 'заказчик доволен',
+					cardWeight: '5',
+					class: 'disabled',
+					attrs: {'data-default': '', 'data-selected': 'Филе из цыплят с трюфелями в бульоне.', 'data-disabled': 'Печалька, с курой закончился.', 'data-selected-hover': 'Котэ не одобряет?', 'data-selected-hovered': ''},
+				},
+			]})

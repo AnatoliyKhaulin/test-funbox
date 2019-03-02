@@ -1,0 +1,28 @@
+$sprites: (
+	"cat": (
+		normal: (
+			x: 0,
+			y: 0,
+			width: 315,
+			height: 273,
+			image: "sprites.png",
+			total_width: 315,
+			total_height: 273,
+		),
+		retina: (
+			x: 0,
+			y: 0,
+			width: 630,
+			height: 546,
+			image: "sprites@2x.png",
+			total_width: 630,
+			total_height: 546,
+		),
+	),
+);
+
+@each $name in map-keys($sprites) {
+	.sprite-#{$name} {
+		@include sprite($name);
+	}
+}

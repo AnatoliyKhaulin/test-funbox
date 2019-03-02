@@ -1,0 +1,364 @@
+.catalog-card {
+	margin-bottom: 40px;
+	padding: 0 20px;
+
+	&__checkbox {
+		@include visually-hidden;
+
+		&:focus {
+			+ .catalog-card__box {
+				.catalog-card__skew-lines {
+					stroke: $color-picton-blue;
+					transition: stroke 0.25s;
+				}
+
+				.catalog-card__content {
+					border-color: $color-picton-blue;
+					transition: border-color 0.25s;
+				}
+			}
+		}
+
+		&:checked {
+			+ .catalog-card__box {
+				.catalog-card__skew-lines {
+					stroke: $color-razzmatazz;
+					transition: stroke 0.25s;
+				}
+
+				.catalog-card__content {
+					border-color: $color-razzmatazz;
+					transition: border-color 0.25s;
+				}
+
+				.catalog-card__weight {
+					background-color: $color-razzmatazz;
+					transition: background-color 0.25s;
+				}
+			}
+		}
+
+		&:disabled {
+			+ .catalog-card__box {
+				cursor: default;
+
+				.catalog-card__skew-lines {
+					stroke: $color-nobel;
+				}
+
+				.catalog-card__content {
+					border-color: $color-nobel;
+				}
+
+				.catalog-card__weight {
+					background-color: $color-nobel;
+				}
+
+				.catalog-card__img,
+				.catalog-card__text {
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+
+	&__box {
+		position: relative;
+		overflow: hidden;
+		padding-top: 50px;
+		width: 320px;
+		height: 480px;
+		color: $color-black;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	&__content {
+		position: relative;
+		border: 4px solid $color-curious-blue;
+		border-top: none;
+		border-bottom-right-radius: 12px;
+		border-bottom-left-radius: 12px;
+		width: 100%;
+		height: 480px - 50px;
+		background-color: $color-concrete;
+		transition: border-color 0.25s;
+	}
+
+	&__skew {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		width: 320px;
+		height: 52px;
+	}
+
+	&__skew-lines {
+		position: absolute;
+		left: 0;
+		top: -4px;
+		z-index: 1;
+		width: 320px;
+		height: 55px;
+		stroke: $color-curious-blue;
+		stroke-width: 4px;
+		transition: stroke 0.25s;
+	}
+
+	&__skew-bg {
+		position: absolute;
+		left: -1px;
+		top: 0;
+		width: 320px;
+		height: 51px;
+		fill: $color-concrete;
+	}
+
+	&__text {
+		position: relative;
+		top: -50px;
+		z-index: 2;
+		overflow: hidden;
+		padding: 0 45px;
+		height: 195px;
+	}
+
+	&__description {
+		overflow: hidden;
+		margin-top: 0;
+		margin-bottom: 9px;
+		padding-top: 21px;
+		height: 40px;
+		font-size: 16px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		transition: color 0.25s;
+	}
+
+	&__title {
+		overflow: hidden;
+		margin: 0;
+		height: 50px;
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 1;
+		white-space: nowrap;
+		text-indent: -0.05em;
+		text-overflow: ellipsis;
+	}
+
+	&__category {
+		overflow: hidden;
+		margin-top: 0;
+		margin-bottom: 10px;
+		height: 28px;
+		font-weight: 700;
+		font-size: 24px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	&__params {
+		padding-top: 5px;
+		height: 37px;
+		font-size: 14px;
+
+		p {
+			overflow: hidden;
+			margin: 0;
+			height: 16px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+
+	&__picture {
+		position: absolute;
+		bottom: 0;
+		overflow: hidden;
+		border-radius: 8px;
+		width: 100%;
+		height: 273px;
+	}
+
+	&__weight {
+		position: absolute;
+		right: 11px;
+		bottom: 11px;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 50%;
+		padding-top: 5px;
+		width: 81px;
+		height: 81px;
+		color: $color-white;
+		background-color: $color-curious-blue;
+		transition: background-color 0.25s;
+
+		span {
+			font-weight: 400;
+			font-size: 42px;
+			line-height: 0.95;
+
+			&:last-child {
+				font-size: 21px;
+			}
+		}
+	}
+
+	&__img {
+		position: absolute;
+		left: -4px;
+		bottom: -4px;
+	}
+
+	&__footer {
+		overflow: hidden;
+		padding: 14px 0;
+		font-size: 13px;
+		white-space: nowrap;
+		text-align: center;
+		text-overflow: ellipsis;
+	}
+
+	&__buy-btn {
+		position: relative;
+		font-weight: 700;
+		line-height: 1;
+		color: $color-curious-blue;
+		transition: color 0.4s;
+		cursor: pointer;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 85%;
+			height: 1px;
+			background-image:
+				linear-gradient(
+					90deg,
+					$color-curious-blue,
+					$color-curious-blue 75%,
+					transparent 75%,
+					transparent 100%
+				);
+			background-size: 3px 2px;
+			transition: background-size 0.5s, left 0.4s, width 0.4s;
+		}
+
+		@media screen {
+			&:hover {
+				color: $color-picton-blue;
+				transition: color 0.4s;
+
+				&::after {
+					left: 42.5%;
+					width: 0;
+					background-image:
+						linear-gradient(
+							90deg,
+							$color-picton-blue,
+							$color-picton-blue 75%,
+							transparent 75%,
+							transparent 100%
+						);
+					background-size: 200px 2px;
+					transition: background-size 1s, left 0.5s, width 0.5s;
+				}
+			}
+		}
+	}
+
+	@media (min-width: 769px) {
+		padding: 0 40px;
+	}
+}
+
+.catalog-card__wrapper {
+	width: 320px;
+	cursor: pointer;
+
+	&--default {
+		@media screen {
+			&:hover {
+				> .catalog-card__box {
+					.catalog-card__skew-lines {
+						stroke: $color-picton-blue;
+						transition: stroke 0.25s;
+					}
+
+					.catalog-card__content {
+						border-color: $color-picton-blue;
+						transition: border-color 0.25s;
+					}
+
+					.catalog-card__weight {
+						background-color: $color-picton-blue;
+						transition: background-color 0.25s;
+					}
+				}
+			}
+		}
+	}
+
+	&--selected {
+		> .catalog-card__box {
+			.catalog-card__skew-lines {
+				stroke: $color-razzmatazz;
+				transition: stroke 0.25s;
+			}
+
+			.catalog-card__content {
+				border-color: $color-razzmatazz;
+				transition: border-color 0.25s;
+			}
+
+			.catalog-card__weight {
+				background-color: $color-razzmatazz;
+				transition: background-color 0.25s;
+			}
+		}
+
+		@media screen {
+			&:hover {
+				> .catalog-card__box--selected-hover {
+					.catalog-card__skew-lines {
+						stroke: $color-cerise-red;
+						transition: stroke 0.25s;
+					}
+
+					.catalog-card__content {
+						border-color: $color-cerise-red;
+						transition: border-color 0.25s;
+					}
+
+					.catalog-card__description {
+						color: $color-cerise-red;
+						transition: color 0.25s;
+					}
+
+					.catalog-card__weight {
+						background-color: $color-cerise-red;
+						transition: background-color 0.25s;
+					}
+				}
+			}
+		}
+	}
+
+	&--disabled {
+		> .catalog-card__box {
+			cursor: default;
+		}
+
+		+ .catalog-card__footer {
+			color: $color-laser-lemon;
+		}
+	}
+}

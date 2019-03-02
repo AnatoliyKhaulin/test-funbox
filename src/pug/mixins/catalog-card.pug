@@ -1,0 +1,47 @@
+mixin catalog-card(data)
+	each item, index in data.items
+		section.catalog-card
+			.catalog-card__wrapper(class=`catalog-card__wrapper--${item.class}`)
+				input.catalog-card__checkbox(type="checkbox" name=`catalogCardCheckbox_${index}` id=`catalogCard_${index}` aria-label=item.cardTitle)&attributes(item.attrs)
+				.catalog-card__box
+					.catalog-card__skew
+						+svg('skew-lines').catalog-card__skew-lines
+						+svg('skew-card').catalog-card__skew-bg
+
+					.catalog-card__content
+						.catalog-card__text
+							p.catalog-card__description
+								| !{item.cardDescription}
+
+							h2.catalog-card__title(title=item.cardTitle)
+								| !{item.cardTitle}
+
+							p.catalog-card__category
+								| !{item.cardCategory}
+
+							.catalog-card__params
+								if (item.cardParamsServing)
+									p
+										if (item.cardParamsServingCount)
+											| #[b #{item.cardParamsServingCount}]&nbsp;
+										| #{item.cardParamsServing}
+
+								if (item.cardParamsGift)
+									p
+										if (item.cardParamsGiftCount)
+											| #[b #{item.cardParamsGiftCount}]&nbsp;
+										| #{item.cardParamsGift}
+
+								if (item.cardParamsStatus)
+									p
+										| #{item.cardParamsStatus}
+						.catalog-card__picture
+							.sprite-cat.catalog-card__img
+
+							.catalog-card__weight
+								| #[span #{item.cardWeight}]
+								| #[span кг]
+
+			footer.catalog-card__footer
+				| Чего сидишь? Порадуй котэ,
+				| #[label(for=`catalogCard_${index}` class="catalog-card__buy-btn" aria-label='купи') купи.]
